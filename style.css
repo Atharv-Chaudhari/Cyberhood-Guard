@@ -1,0 +1,8 @@
+body{
+    background-color: whitesmoke;
+}
+textarea{
+    resize: both;
+    width: 30%;
+    min-height: 300px;
+}

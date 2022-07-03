@@ -1,1 +1,133 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/Cyberhood-Guard/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="apple-touch-icon" href="/Cyberhood-Guard/logo192.png"/><link rel="manifest" href="/Cyberhood-Guard/manifest.json"/><title>React App</title><script defer="defer" src="/Cyberhood-Guard/static/js/main.370fac12.js"></script><link href="/Cyberhood-Guard/static/css/main.073c9b0a.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <title>Cyberhood Guard</title>
+</head>
+
+<body>
+
+    <textarea type="text" id="input-text"></textarea>
+    <textarea type="text" id="encrypted-text"></textarea>
+    <textarea type="text" id="output-text"></textarea>
+
+    <input type="radio"  id="affine" pys-onClick="affine" value="Affine" name="radio">
+    <label for="affine">Affine Cipher</label><br>
+    <input type="radio"  id="caesar" pys-onClick="caesar" value="Caesar" name="radio">
+    <label for="caesar">Caesar Cipher</label><br>
+    <input type="radio"  id="columnar" pys-onClick="columnar" value="Columnar" name="radio">
+    <label for="columnar">Columnar Cipher</label><br>
+    <input type="radio"  id="substitution" pys-onClick="substitution" value="substitution" name="radio">
+    <label for="substitution">Substitution Cipher</label><br>
+    <input type="radio"  id="otp" pys-onClick="otp" value="otp" name="radio">
+    <label for="otp">OTP Cipher</label><br>
+    <input type="radio"  id="play_fair" pys-onClick="play_fair" value="play_fair" name="radio">
+    <label for="play_fair">Play Fair Cipher</label><br>
+    <input type="radio"  id="Rail_Fence" pys-onClick="Rail_Fence" value="Rail_Fence" name="radio">
+    <label for="Rail_Fence">Rail Fence Cipher</label><br>
+    <input type="radio"  id="vigenere" pys-onClick="vigenere" value="vigenere" name="radio">
+    <label for="vigenere">Vigenere Cipher</label><br>
+
+    <py-env>
+    - numpy
+    </py-env>
+
+    <py-script src="/pycodes/affine.py"></py-script>
+    <py-script src="/pycodes/caesar.py"></py-script>
+    <py-script src="/pycodes/columnar.py"></py-script>
+    <py-script src="/pycodes/substitution.py"></py-script>
+    <py-script src="/pycodes/otp.py"></py-script>
+    <py-script src="/pycodes/play_fair.py"></py-script>
+    <py-script src="/pycodes/Rail_Fence.py"></py-script>
+    <py-script src="/pycodes/vigenere.py"></py-script>
+
+    <py-script>
+
+        def affine(*args, **kwargs):
+            input_txt=Element("input-text")
+            encrypted_txt=Element("encrypted-text")
+            output_txt=Element("output-text")
+            enc=affine_encrypt(input_txt.value)
+            encrypted_txt.write(enc)
+            dec=affine_decrypt(enc)
+            output_txt.write(dec)
+
+        def caesar(*args, **kwargs):
+            input_txt=Element("input-text")
+            encrypted_txt=Element("encrypted-text")
+            output_txt=Element("output-text")
+            enc=caesar_encrypt(input_txt.value)
+            encrypted_txt.write(enc)
+            dec=caesar_decrypt(enc)
+            output_txt.write(dec)
+        
+        def columnar(*args, **kwargs):
+            input_txt=Element("input-text")
+            encrypted_txt=Element("encrypted-text")
+            output_txt=Element("output-text")
+            enc=columnar_encrypt(input_txt.value)
+            encrypted_txt.write(enc)
+            dec=columnar_decrypt(enc)
+            output_txt.write(dec)
+
+        def substitution(*args, **kwargs):
+            input_txt=Element("input-text")
+            encrypted_txt=Element("encrypted-text")
+            output_txt=Element("output-text")
+            enc=substitution_encrypt(input_txt.value)
+            encrypted_txt.write(enc)
+            dec=substitution_decrypt(enc)
+            output_txt.write(dec)
+        
+        def otp(*args, **kwargs):
+            input_txt=Element("input-text")
+            encrypted_txt=Element("encrypted-text")
+            output_txt=Element("output-text")
+            enc=otp_encrypt(input_txt.value)
+            encrypted_txt.write(enc)
+            dec=otp_decrypt(enc)
+            output_txt.write(dec)
+        
+        def play_fair(*args, **kwargs):
+            input_txt=Element("input-text")
+            encrypted_txt=Element("encrypted-text")
+            output_txt=Element("output-text")
+            enc=play_fair_encrypt(input_txt.value)
+            encrypted_txt.write(enc)
+            dec=play_fair_decrypt(enc)
+            output_txt.write(dec)
+
+        def Rail_Fence(*args, **kwargs):
+            input_txt=Element("input-text")
+            encrypted_txt=Element("encrypted-text")
+            output_txt=Element("output-text")
+            enc=Rail_Fence_encrypt(input_txt.value)
+            encrypted_txt.write(enc)
+            dec=Rail_Fence_decrypt(enc)
+            output_txt.write(dec)
+
+        def vigenere(*args, **kwargs):
+            input_txt=Element("input-text")
+            encrypted_txt=Element("encrypted-text")
+            output_txt=Element("output-text")
+            enc=vigenere_encrypt(input_txt.value)
+            encrypted_txt.write(enc)
+            dec=vigenere_decrypt(enc)
+            output_txt.write(dec)
+
+    </py-script>
+
+</body>
+</html>
+
+
+
+
+<!-- Excess Stuff -->
+<!-- <button id="submit-button" type="submit" pys-onClick="fun">Submit</button> -->
