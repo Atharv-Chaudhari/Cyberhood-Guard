@@ -6,43 +6,128 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <link rel="stylesheet" href="style.css" />
     <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
     <title>Cyberhood Guard</title>
 </head>
 
 <body>
-    <div>
-        <div>
-            <div>
-                <h2>&#160&#160Original Text&#160&#160</h2>
+    <div class="title-block">
+        <img src="img/wel3.gif" width="100" height="70">
+        <h1 class="title">&#160&#160Welcome to Project Cyberhood Guard&#160&#160</h1>
+        <img src="img/wel4.gif" width="100" height="50">
+    </div>
+    <div class="input-blocks">
+        <div class="sub-block">
+            <div class="mini-blocks">
+                <img src="img/down.gif" width="80" height="50">
+                <h2 class="sub-title org">&#160&#160Original Text&#160&#160</h2>
+                <img src="img/book.png" width="60" height="20">
             </div>
             <textarea type="text" placeholder="Enter Original Text Here..." id="input-text" cols="50"></textarea>
         </div>
-        <div>
-            <div>
+        <div class="sub-block">
+            <div class="mini-blocks">
+                <img src="img/succ.gif" width="80" height="50">
                 <h2 class="sub-title enc">&#160&#160Encrypted Text&#160&#160</h2>
+                <img src="img/tbook.png" width="60" height="20">
             </div>
             <textarea type="text" placeholder="Enter Encrypted Text Here..." id="encrypted-text" cols="50"></textarea>
         </div>
-        <div>
-            <div>
+        <div class="sub-block">
+            <div class="mini-blocks">
+                <img src="img/succ.gif" width="80" height="50">
                 <h2 class="sub-title dec">&#160&#160Decrypted Text&#160&#160</h2>
+                <img src="img/book.png" width="60" height="20">
             </div>
-            <textarea type="text" placeholder="Decrypted Text Will Be Visible Here..." id="output-text"
-                cols="50"></textarea>
+            <textarea type="text" placeholder="Decrypted Text Will Be Visible Here..." id="output-text" cols="50"></textarea>
         </div>
     </div>
 
-    <div>
+    <div class="block-radios">
         <label for="affine" class="btn-radio">
-            <input type="radio" id="affine" pys-onClick="affine" value="Affine" name="radio">
+            <input type="radio"  id="affine" pys-onClick="affine" value="Affine" name="radio">
+            <svg width="20px" height="22px" viewBox="0 0 25 15">
+                <circle cx="10" cy="10" r="10"></circle>
+                <path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+                <path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+            </svg>
             <span>&#160Affine Cipher</span>
         </label>
+        <br>
+        <label for="caesar" class="btn-radio">
+        <input type="radio"  id="caesar" pys-onClick="caesar" value="Caesar" name="radio">
+        <svg width="20px" height="22px" viewBox="0 0 25 15">
+            <circle cx="10" cy="10" r="10"></circle>
+            <path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+            <path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+        </svg>
+        <span>&#160Caesar Cipher</span></label><br>
+        <label for="columnar" class="btn-radio">
+        <input type="radio"  id="columnar" pys-onClick="columnar" value="Columnar" name="radio">
+        <svg width="20px" height="22px" viewBox="0 0 25 15">
+            <circle cx="10" cy="10" r="10"></circle>
+            <path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+            <path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+        </svg>
+        <span>&#160Columnar Cipher</span></label><br>
+        <label for="substitution" class="btn-radio">
+        <input type="radio"  id="substitution" pys-onClick="substitution" value="substitution" name="radio">
+        <svg width="20px" height="22px" viewBox="0 0 25 15">
+            <circle cx="10" cy="10" r="10"></circle>
+            <path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+            <path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+        </svg>
+        <span>&#160Substitution Cipher</span></label><br>
+        <label for="otp" class="btn-radio">
+        <input type="radio"  id="otp" pys-onClick="otp" value="otp" name="radio">
+        <svg width="20px" height="22px" viewBox="0 0 25 15">
+            <circle cx="10" cy="10" r="10"></circle>
+            <path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+            <path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+        </svg>
+        <span>&#160OTP Cipher</span></label><br>
+        <label for="play_fair" class="btn-radio">
+        <input type="radio"  id="play_fair" pys-onClick="play_fair" value="play_fair" name="radio">
+        <svg width="20px" height="22px" viewBox="0 0 25 15">
+            <circle cx="10" cy="10" r="10"></circle>
+            <path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+            <path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+        </svg>
+        <span>&#160Play Fair Cipher</span></label><br>
+        <label for="Rail_Fence" class="btn-radio">
+        <input type="radio"  id="Rail_Fence" pys-onClick="Rail_Fence" value="Rail_Fence" name="radio">
+        <svg width="20px" height="22px" viewBox="0 0 25 15">
+            <circle cx="10" cy="10" r="10"></circle>
+            <path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+            <path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+        </svg>
+        <span>&#160Rail Fence Cipher</span></label><br>
+        <label for="vigenere" class="btn-radio">
+        <input type="radio"  id="vigenere" pys-onClick="vigenere" value="vigenere" name="radio">
+        <svg width="20px" height="22px" viewBox="0 0 25 15">
+            <circle cx="10" cy="10" r="10"></circle>
+            <path d="M10,7 C8.34314575,7 7,8.34314575 7,10 C7,11.6568542 8.34314575,13 10,13 C11.6568542,13 13,11.6568542 13,10 C13,8.34314575 11.6568542,7 10,7 Z" class="inner"></path>
+            <path d="M10,1 L10,1 L10,1 C14.9705627,1 19,5.02943725 19,10 L19,10 L19,10 C19,14.9705627 14.9705627,19 10,19 L10,19 L10,19 C5.02943725,19 1,14.9705627 1,10 L1,10 L1,10 C1,5.02943725 5.02943725,1 10,1 L10,1 Z" class="outer"></path>
+        </svg>
+        <span>&#160Vigenere Cipher</span></label><br>
     </div>
 
+    <py-env>
+    - numpy
+    </py-env>
+
     <py-script src="/pycodes/affine.py"></py-script>
+    <py-script src="/pycodes/caesar.py"></py-script>
+    <py-script src="/pycodes/columnar.py"></py-script>
+    <py-script src="/pycodes/substitution.py"></py-script>
+    <py-script src="/pycodes/otp.py"></py-script>
+    <py-script src="/pycodes/play_fair.py"></py-script>
+    <py-script src="/pycodes/Rail_Fence.py"></py-script>
+    <py-script src="/pycodes/vigenere.py"></py-script>
 
     <py-script>
+
         def affine(*args, **kwargs):
             input_txt=Element("input-text")
             encrypted_txt=Element("encrypted-text")
@@ -51,7 +136,85 @@
             encrypted_txt.write(enc)
             dec=affine_decrypt(enc)
             output_txt.write(dec)
-    </py-script>
-</body>
 
+        def caesar(*args, **kwargs):
+            input_txt=Element("input-text")
+            encrypted_txt=Element("encrypted-text")
+            output_txt=Element("output-text")
+            enc=caesar_encrypt(input_txt.value)
+            encrypted_txt.write(enc)
+            dec=caesar_decrypt(enc)
+            output_txt.write(dec)
+        
+        def columnar(*args, **kwargs):
+            input_txt=Element("input-text")
+            encrypted_txt=Element("encrypted-text")
+            output_txt=Element("output-text")
+            enc=columnar_encrypt(input_txt.value)
+            encrypted_txt.write(enc)
+            dec=columnar_decrypt(enc)
+            output_txt.write(dec)
+
+        def substitution(*args, **kwargs):
+            input_txt=Element("input-text")
+            encrypted_txt=Element("encrypted-text")
+            output_txt=Element("output-text")
+            enc=substitution_encrypt(input_txt.value)
+            encrypted_txt.write(enc)
+            dec=substitution_decrypt(enc)
+            output_txt.write(dec)
+        
+        def otp(*args, **kwargs):
+            input_txt=Element("input-text")
+            encrypted_txt=Element("encrypted-text")
+            output_txt=Element("output-text")
+            enc=otp_encrypt(input_txt.value)
+            encrypted_txt.write(enc)
+            dec=otp_decrypt(enc)
+            output_txt.write(dec)
+        
+        def play_fair(*args, **kwargs):
+            input_txt=Element("input-text")
+            encrypted_txt=Element("encrypted-text")
+            output_txt=Element("output-text")
+            enc=play_fair_encrypt(input_txt.value)
+            encrypted_txt.write(enc)
+            dec=play_fair_decrypt(enc)
+            output_txt.write(dec)
+
+        def Rail_Fence(*args, **kwargs):
+            input_txt=Element("input-text")
+            encrypted_txt=Element("encrypted-text")
+            output_txt=Element("output-text")
+            enc=Rail_Fence_encrypt(input_txt.value)
+            encrypted_txt.write(enc)
+            dec=Rail_Fence_decrypt(enc)
+            output_txt.write(dec)
+
+        def vigenere(*args, **kwargs):
+            input_txt=Element("input-text")
+            encrypted_txt=Element("encrypted-text")
+            output_txt=Element("output-text")
+            enc=vigenere_encrypt(input_txt.value)
+            encrypted_txt.write(enc)
+            dec=vigenere_decrypt(enc)
+            output_txt.write(dec)
+
+    </py-script>
+    <br>
+    <h1 style="text-align: center;color: blue;font-size: 20px;">© Copyright, Cyberhood Guard</h1>
+    <br>
+    
+    <div class="doc">
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+</body>
 </html>
